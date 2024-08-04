@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <h1 id="title">thank you for coming to my web site</h1>
+    <h2>do you like my hair?</h2>
+    <div>
+      <button
+        onclick="
+            document.getElementById('smile').classList.add('visible')
+            document.getElementById('frown').classList.remove('visible')
+            if (document.getElementById('title').innerHTML.includes('yay')) {
+                document.getElementById('title').innerHTML = document.getElementById('title').innerHTML + ' yay thanks'
+            } else {
+                document.getElementById('title').innerHTML = 'yay thanks'
+            }
+        "
+      >
+        yes
+      </button>
+      <button
+        onclick="
+        document.getElementById('smile').classList.remove('visible')
+        document.getElementById('frown').classList.add('visible')
+        if (document.getElementById('title').innerHTML.includes('aw')) {
+                document.getElementById('title').innerHTML = document.getElementById('title').innerHTML + ' aw darn'
+            } else {
+                document.getElementById('title').innerHTML = 'aw darn'
+            }
+    "
+      >
+        no
+      </button>
+    </div>
+    <div id="face-container">
+      <img id="face" src="face.jpg" />
+      <img id="smile" src="smile.jpg" />
+      <img id="frown" src="frown.jpg" />
+    </div>
+  </body>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    h2 {
+      margin-top: -4px;
+    }
+    #face-container {
+      position: relative;
+      max-width: 80%;
+      width: 400px;
+      margin-top: 20px;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+    }
+    .visible {
+      opacity: 100%;
+    }
+    #face {
+      z-index: 0;
+      opacity: 100%;
+    }
+    #smile {
+      z-index: 1;
+    }
+    #frown {
+      z-index: 1;
+    }
+    button {
+      width: 100px;
+      height: 50px;
+      font-size: 18px;
+    }
+  </style>
+</html>
